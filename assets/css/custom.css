@@ -330,7 +330,8 @@ body {
     position: inherit;
     margin-top: 10px;
     border: 1px solid rgba(52, 73, 94, 0.44);
-    padding: 4px
+    padding: 4px;
+    height:60px;
 }
 
 .profile_info {
@@ -5147,7 +5148,7 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
     bottom: 0;
     left: 0;
    z-index: 0!important;
-    background-color: rgba(49, 196, 164, 0.472);
+    background-color: rgba(102, 102, 102, 0.472);
   }
   .modal-backdrop.fade {
     filter: alpha(opacity=0);

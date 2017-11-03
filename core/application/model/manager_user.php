@@ -63,9 +63,9 @@ public function CoutRow(){
    
 }
 // chỉ có dành cho admin
-public function UpdateInfoUser($id,$Name,$Country,$BirthDay,$Mail,$NumberPhone,$GrantUser)
+public function UpdateInfoUser($id,$Name,$Country,$BirthDay,$Mail,$NumberPhone,$GrantUser,$namefile)
 {
-    $sql="UPDATE infouser SET BirthDay = '$BirthDay', Country = '$Country', Mail = '$Mail', NumberPhone = $NumberPhone, Name = '$Name',Current_id=$GrantUser
+    $sql="UPDATE infouser SET BirthDay = '$BirthDay', Country = '$Country', Mail = '$Mail', NumberPhone = $NumberPhone, Name = '$Name',Current_id=$GrantUser,Avatar='$namefile'
     WHERE id=$id";
     echo $sql;
     $result = $this->conn->query($sql);
@@ -202,10 +202,10 @@ public function GetPostConfessionUser($id)
 public function Get_Post_Search_Paging($view=2,$search="",$start,$limit){
     // function get toàn bộ nội dung post có tìm và giới hạn
     if($search==""){
-       $sql = "SELECT id,UserName,Title,Content,view,DateUp,id_post FROM post where view=$view  LIMIT $start, $limit";
+       $sql = "SELECT id,UserName,Title,Content,view,DateUp,id_post,Avatar FROM post where view=$view  LIMIT $start, $limit";
     }
     else {
-        $sql = "SELECT id,UserName,Title,Content,view,DateUp,id_post FROM post WHERE view=$view and UserName like '%$search%' Or Title like '%$search%' LIMIT $start, $limit";
+        $sql = "SELECT id,UserName,Title,Content,view,DateUp,id_post,Avatar FROM post WHERE view=$view and UserName like '%$search%' Or Title like '%$search%' LIMIT $start, $limit";
         
     }
    

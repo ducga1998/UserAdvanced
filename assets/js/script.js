@@ -268,7 +268,7 @@ $(document).on("click", ".btn-post", function(e) {
     var data = $("#formPostConfession").serializeArray();
 
     data.forEach(function(e) {
-        StringArray+=e.value+".";
+        StringArray+=e.value+"*||*";
         i++;
 
     }, this);

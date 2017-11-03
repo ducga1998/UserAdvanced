@@ -8,18 +8,23 @@ function dateNow(){
 isset($_REQUEST["StringArray"])?$StringArray=$_REQUEST["StringArray"]:1;
 $link= mysql_connect('localhost', 'root', '');
 mysql_select_db('projectbig');
- $array=explode(".",$StringArray);
- var_dump($StringArray);
+ $array=explode("*||*",$StringArray);
+ 
  $tilte=$array[0];
  $id_user=$array[1];
  $UserName=$array[2];
- $Content=$array[3];
+
+ $var=stripslashes($array[3]);
+ $var=htmlentities($var);
+ $var=strip_tags($var);
+ $Content=mysql_real_escape_string($var);
  $DateUp=dateNow();
  if (!$link) {
 		die('Could not connect: ' . mysql_error());
 	}
 		
 		$sql="INSERT INTO post ( UserName, Title,Content,view,DateUp,id,id_post) VALUES ('$UserName','$tilte','$Content',1,'$DateUp',$id_user,'')";
+		echo $sql;
 		
 		mysql_query($sql);
 		$id_post= mysql_insert_id();

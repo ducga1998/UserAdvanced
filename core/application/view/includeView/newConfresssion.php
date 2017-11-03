@@ -53,11 +53,17 @@
       
          }
          $string.="</select>";
-      
+                  if($row["Avatar"]=="")
+                  {
+                    $Avatar="deauft.jpg";
+                  }
+                  else{
+                    $Avatar=$row["Avatar"];
+                  }
         echo " 
       <tr style='transition: 1s;'    >
       <td> <input class='checkboxclass' idcheck=".$row["id_post"]." type='checkbox' value=''></td>
-      <th style='text-align:center'><img style='width:60px;height:60px' src='./controller/folder/deauft.jpg' ></th>
+      <th style='text-align:center'><img style='width:60px;height:60px' src='./controller/folder/".$Avatar."' ></th>
         
          
         <td style='color:#20c1c1' class='nameUserPost' >".htmlentities($row["UserName"])."</td>

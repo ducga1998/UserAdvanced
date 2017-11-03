@@ -1,34 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
+<?php
+if (isset($_FILES['avatar']))
+{
+    // Nếu file upload không bị lỗi,
+    // Tức là thuộc tính error > 0
+    if ($_FILES['avatar']['error'] > 0)
+    {
+        echo 'File Upload Bị Lỗi';
+    }
+    else{
+        // Upload file
+        move_uploaded_file($_FILES['avatar']['tmp_name'], '../../../../assets/images/'.$_FILES['avatar']['name']);
+        echo 'File Uploaded';
+    }
+
+}
+
+else{
+    echo 'Bạn chưa chọn file upload';
+}
+echo "tên file là ".$_FILES['avatar']['name'];
+$nameFile=$_FILES['avatar']['name'];
+
+// Allow certain file formats
+?>
+   
+
 <?php 
-$formData=$_REQUEST["formData"];   
+$Name=$_REQUEST["Name"];
+$BirthDay=$_REQUEST["BirthDay"];
+$Mail=$_REQUEST["Mail"];
+$Country=$_REQUEST["Country"];
+$id=$_REQUEST["id"];
+$NumberPhone=$_REQUEST["NumberPhone"];
+$Current_id=$_REQUEST["Current_id"];
 
-$arrayString=explode(".",$formData);
-/*  var StringArray = idUser + "." + NameUser + "." + NumberPhoneUser 
-+ "." + birthDay + "." + GrantUser + "." + CountryUser; */
+echo "id là:".$id;
 
-$idUser=$arrayString[0];
-$NameUser=$arrayString[1];
-$NumberPhoneUser=$arrayString[2];
-$birthDay=$arrayString[3];
-$GrantUser=$arrayString[4];
 
-if($GrantUser=="Admin")
-{
-    $GrantUser=3;
-}
-elseif($GrantUser=="User")
-{
-    $GrantUser=1;
-}
-else
-{
-    $GrantUser=2;
-}
-$CountryUser=$arrayString[5];
-$MailUser=$arrayString[6];
 
  
 include "../../model/manager_user.php";
-Model_qlsv::inst()->UpdateInfoUser($idUser,$NameUser,$CountryUser,$birthDay,$MailUser,$NumberPhoneUser,$GrantUser);
+ Model_qlsv::inst()->UpdateInfoUser($id,$Name,$Country,$BirthDay,$Mail,$NumberPhone,$Current_id,$nameFile);
 
 
 ?>

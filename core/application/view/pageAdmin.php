@@ -76,7 +76,7 @@
                         <div class="profile clearfix">
                             <div class="profile_pic">
 
-                               <a data-toggle="modal" data-target="#Infomation" href=""><img src="./assets/images/img.jpg" alt=".." class="img-circle profile_img"></a> 
+                               <a data-toggle="modal" data-target="#Infomation" href=""><img src=<?php echo "./assets/images/".$rows["Avatar"]  ?> alt=".." class="img-circle profile_img"></a> 
                             </div>
 
 
@@ -98,10 +98,50 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Infomation YOU ^^</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <form method="post" action="./core/application/view/backend/UpdateInfoUserAJAX.php" enctype="multipart/form-data" >
+        
+        <img src="./assets/images/img.jpg" alt=".." class="img-circle profile_img">
+        <input type="file" name="avatar"/>
+        <input type='hidden' value=<?php echo $rows['id'] ?> name='id'>
+        <input type='hidden' value=<?php echo $rows['Current_id'] ?> name='Current_id'>
+
+
+        <span class="input input--hoshi">
+            
+					<input value=<?php echo $rows['Name'] ?> name='Name' class="input__field input__field--hoshi" type="text" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi">Name You </span>
+					</label>
+                </span> 
+                <span class="input input--hoshi">
+					<input  name='BirthDay' value=<?php echo $rows['BirthDay'] ?>  class="input__field input__field--hoshi" type="text" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi">Birdthday</span>
+					</label>
+                </span>
+                <span class="input input--hoshi">
+					<input  name='NumberPhone'  value=<?php echo $rows['NumberPhone'] ?> class="input__field input__field--hoshi" type="text" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi">Phone Number</span>
+					</label>
+                </span>
+                <span class="input input--hoshi">
+					<input  name='Mail' value=<?php echo $rows['Mail']?> class="input__field input__field--hoshi" type="text" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi">Email You</span>
+					</label>
+                </span>
+                <span class="input input--hoshi">
+					<input  name='Country'  value=<?php echo $rows['Country'] ?> class="input__field input__field--hoshi" type="text" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi">Country You</span>
+					</label>
+                </span>
+                <input type="submit" value="Update">
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

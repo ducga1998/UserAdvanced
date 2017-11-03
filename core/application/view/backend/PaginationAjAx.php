@@ -6,7 +6,7 @@
         isset($totalPage)?$i:1;
         echo "<ul class='pagination'>";
         $current_page=0;
-         $total_page=ceil($a/$x);  // nó =0
+        $total_page=ceil($a/$x);  // nó =0
     
         // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
         if($current_page > 1 && $total_page > 1) {
