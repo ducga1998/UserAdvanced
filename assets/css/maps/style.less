@@ -1,0 +1,151 @@
+.wrapPost{
+    .menu{
+        background-color: aquamarine;
+        .tilte{
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+
+            
+        }
+        .content{
+            font-family: monospace;
+            font-weight: italic;
+            
+
+        }
+    }
+}
+.contentDetailView{
+    word-wrap: break-word;
+}
+.table-bordered{
+    transition-property: background-color,border-radius;
+    transition-delay: 2s,3s;
+    transition-timing-function: cier(0.175, ubic-bez0.885, 0.32, 1.275);
+}
+.showAlert{
+    opacity: 1;
+    transition: 1s;
+}
+
+.media-body{
+   background-color: #8EC7C3;
+   border-radius: 15px;
+   padding: 20px;
+   padding-left: 20px;
+   
+   &:hover{
+       color:black;
+       transition: 1s;
+       background-color: #D3C0AA;
+
+   }
+
+}
+.alertSuccess{
+    color:green;
+    font-size: 30px;
+}
+.none{
+    display: none;
+}
+.modal-content{
+    background-color: rgb(98, 160, 115);
+    color:rgba(217,224,226, 1)!important;
+    opacity: 0.8;
+}.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+  }
+  .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+      border: 1px;
+      word-wrap: break-word;
+  }
+  .PostHistory select{
+      height: 40px;
+  }
+  .hoverSpanSmartSearch{
+    background-color: gray;
+    color: #d0f1ee;
+      position: relative;
+      display: block;
+      padding: 10px;
+      &:hover{
+        background-color: #b4aaaa;
+        color: #141d1c;
+      }
+
+
+  }
+  #result{
+    position: absolute;
+    width: 30%;
+    opacity: 0.9;
+    font-weight: bold;
+    font-family: monospace;
+
+  }
+  .modal-content{
+      background-color: #253548;
+      
+  }
+  .table{
+      color:#1abb9c;
+  }
+  .ClickPaging{
+      cursor: pointer;
+  }
+  .loader{
+    background-image: url('http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/1-0.gif');
+    height: auto;
+    width: 100%;
+    display: inline-block;
+ }
+ form {
+	
+	width: 50%;
+	
+}
+
+input,
+textarea {
+display: block;
+
+border: 0;
+padding: 10px 5px;
+background: rgba(95, 95, 93, 0.198) no-repeat;
+color:rgba(0, 221, 255, 0.911);
+font-style: italic;
+font-size: 20px;
+
+	
+	/*
+	* IMPORTANT PART HERE
+	*/
+	
+  /* 2 imgs : 1px gray line (normal state) AND 2px green line (focus state) */
+	background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+	/* sizes for the 2 images (default state) */
+	background-size: 0 2px, 100% 1px;
+	/* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+	background-position: 50% 100%, 50% 100%;
+
+	/* animation solely on background-size */
+  transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+
+}
+
+input:focus,
+textarea:focus{
+  /* sizes for the 2 images (focus state) */
+	background-size: 100% 2px, 100% 1px;
+	outline: none;
+}
+ 
